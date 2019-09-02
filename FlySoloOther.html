@@ -1,0 +1,113 @@
+<!-- Theodore Storl-Desmond -->
+<!-- Something Else (Careers) -->
+<html>
+	<head>	
+		<title> Fly Solo Co. </title>
+<!-- Alert that comes up when user submits an application -->
+		<script>
+			function thanks() {
+				alert("Thank you for your interest! Allow our Human Resources department a few days to review your application.");
+			}
+		</script>
+	</head>
+<!-- Possible careers -->
+	<body bgcolor="blue">
+		<h2 align="center"><font face="calibri" color="white">
+			Careers
+		</font></h2>
+		<p align="center">
+			<img src="projectimages/employee.png" height=200 width=300 />
+		</p>
+<!-- Describing what it is like to work at our company -->
+		<p><font color="white">
+			At FlySolo Company, we're solving the world's most important problems with talented individuals who 
+			share our passion to change the world. Our culture is fast-paced, energetic and innovative.
+			FlySolo Co. is an equal opportunity employer committed to a culturally diverse workforce. 	
+			All qualified applicants will receive consideration for employment without regard to race, 
+			religion, sex, origin, or sexual orientation. We are an employee-owned company, offering pay well above the <a href="https://www.bls.gov/oes/current/oes_nat.htm#00-0000" target="_blank" style="color: 90EE90"> 
+			national averages </a>.  
+		</font></p>
+<!-- Different specializations in list form --> 
+		<p><font color="white"><u>
+			We Offer Careers in Several Departments and Specializations: </u>
+			<ul type="disc">
+				<li> Finance </li>
+<!-- nested list -->
+					<ul type="disc">
+						<li> Economists </li>
+						<li> Accountants </li>
+					</ul>
+				<li> Communications </li>
+				<li> Marketing, Sales, and Service </li>
+				<li> Engineering </li>
+<!-- nested list -->
+					<ul type="disc">
+						<li> Aerospace </li>
+						<li> Mechanical </li>
+						<li> Electrical </li>
+						<li> Chemical </li>
+						<li> Computer and Software </li>
+					</ul>
+				<li> Human Resources </li>
+				<li> Management </li>
+			</ul>
+		</font></p>
+<!-- Starting form - mailed to tks24@pitt.edu -->
+		<p><font color="white">
+			To inquiry about possible careers for you, please fill out this form below.
+			Our Human Resources department will get back to you as soon as possible.
+		</font></p>
+		<hr />
+		<form action="mailto:tks24@pitt.edu?SUBJECT=Career Inquiry" method="post" enctype="text/plain">	
+<!-- User first name (text box) -->
+			<p><font color="white"> 
+				Enter First Name:
+					<input type="text" name="FirstName" id="FN" value="Type here" maxlength="60" />
+			</font></p>
+<!-- User Last Name (text box) -->
+			<p><font color="white"> 
+				Enter Last Name:
+					<input type="text" name="LastName" id="LN" value="Type here" maxlength="60" />
+			</font></p>
+<!-- User email address -->
+			<p><font color="white"> <!-- User email address -->
+				Enter Valid Email Address:
+					<input type="text" name="EmailAddress" id="EA" value="Type here" maxlength="60" />
+			</font></p>
+<!-- User specialization (drop down) -->
+			<p><font color="white">
+				Please choose your department of interest:
+			</font></p>
+			<select name="Career" id="CarSpec">
+				<option selected> Finance </option> 
+				<option> Communications </option>
+				<option> Marketing, Sales, Service </option>
+				<option> Engineering </option>
+				<option> Human Resources </option>
+				<option> Management </option>
+			</select>
+<!-- User resume (file grab) -->
+			<p><font color="white">
+				Please provide your resume:
+				<input type="file" name="Resume" id="RS" size="30" />
+			</font></p>
+<!-- User personal statement (text area) -->
+			<p><font color="white">
+				Please describe what you would bring to FlySolo Company:
+			</font></p>
+			<textarea name="PersonalStatement" rows="10" cols="100" id="PS" wrap="hard">
+Type Text Here
+			</textarea>
+			<p><font color="white"><i>
+				Selected applicants may be asked for references.
+			</i></font></p>
+<!-- Submit and reset buttons -->
+			<input type="submit" name="SubmitButton" id="SButton" value="Submit" onclick="thanks()"/>
+			<input type="reset" name="ResetButton" id="RButton" value="Reset" />
+		</form>
+<!-- End form -->
+		<hr/> 
+<!-- address -->
+		<address align=left><font color="white"> This web page was last edited on 11/21/2018 </font></address>
+	</body>
+</html>

@@ -1,0 +1,157 @@
+<!-- Theodore Storl-Desmond -->
+<!-- Contact Us -->
+<html>
+	<head>	
+		<title> Fly Solo Co. </title>
+<!-- Alert after user has submitted questionaire -->
+		<script>
+			function thanks() {
+				alert("Thank you for your input! Our Human Resources department will get back to you shortly. We hope to see you again in the future!");
+			}
+		</script>
+	</head>
+	<body bgcolor="blue">
+		<h2 align="center"><font face="calibri" color="white">
+			Contact Us
+		</font></h2> 
+<!-- Starting form - Mailed to tks24@pitt.edu -->
+		<form action="mailto:tks24@pitt.edu?SUBJECT=Question/Comment" method="post" id="FSForm" name="FSForm" enctype="text/plain">
+			<p><font color="white">
+				We love hearing from our customers! Please fill out this form and we will get back to you as soon as possible.
+			</font></p>
+			<hr/>
+<!-- User First Name - text box -->
+			<p><font color="white"> 
+				Enter First Name:
+					<input type="text" name="FirstName" id="FN" value="Type here" maxlength="60" />
+			</font></p>
+<!-- User Email - text box -->
+			<p><font color="white"> 
+				Enter Valid Email Address:
+					<input type="text" name="EmailAddress" id="EA" value="Type here" maxlength="60" />
+			</font></p>
+<!-- Projects the user is interested in - check boxes -->
+			<p><font color="white">
+				We are always looking to improve and expand. Which of these potential projects would you like to see in the future? Select all that apply:	
+				<br/><input type="checkbox" name="Project" id="P1" value="Project 1" /><i> Project 1 - Incorporating the FlySolo into the public transportation system </i>
+				<br/><input type="checkbox" name="Project" id="P2" value="Project 2" /><i> Project 2 - Introducing a 2,3, and 4 person capacity FlySolo model </i> 
+				<br/><input type="checkbox" name="Project" id="P3" value="Project 3" /><i> Project 3 - The option to rent </i>
+				<br/><input type="checkbox" name="Project" id="P4" value="Project 4" /><i> Project 4 - Public charging stations </i>
+				<br/><input type="checkbox" name="Project" id="P5" value="Project 5" /><i> Project 5 - Allowing law enforcement to use the FlySolo </i>
+			</font></p>
+<!-- User Question/Comment - text area -->
+			<p><font color="white">
+				Please submit your question or comment here:
+			</font></p>
+			<textarea name="Question" rows="7" cols="75" id="Que" wrap="hard" >
+Type Text Here
+			</textarea>
+<!-- How the user found our company - drop down menu -->
+			<p><font color="white">
+				How did you hear of us?
+			</font></p>
+			<select name="View" id="VS">
+				<option> Online Website </option>
+				<option> Friend </option>
+				<option selected> Advertisement </option>
+				<option> News </option>
+				<option> Other </option>
+			</select>
+<!-- How easy the website was for the user to use - drop down menu -->
+			<p><font color="white">
+				How helpful was this website?
+			</font></p>
+			<select name="Rate" id="RA">
+				<option> 1 - Needs Improvement </option>
+				<option> 2 </option>
+				<option> 3 </option>
+				<option> 4 </option>
+				<option selected> 5 - Very Informative </option>
+			</select>
+<!-- Likeliness of user recommendation - radio -->
+			<p><font color="white">
+				How likely are you to recommend FlySolo Co. to a friend?
+				<input type="radio" name="rating" id="R1" value="Unlikely" /> <i>Very Unlikely</i>
+				<input type="radio" name="rating" id="R2" value="Likely" /> <i>Likely</i>
+				<input type="radio" name="rating" id="R3" value="Neutral" /> <i>Neutral</i>
+				<input type="radio" name="rating" id="R4" value="Likely" /> <i>Likely</i>
+				<input type="radio" name="rating" id="R5" value="Very Likely" checked/> <i>Very Likely</i>
+			</font></p>
+<!-- Submit and Reset button -->
+			<input type="submit" name="SubmitButton" id="SButton" value="Submit Your Responses" onclick="thanks()"/>
+			<input type="reset" name="ResetButton" id="RButton" value="Reset" />
+		</form>
+		<hr/>
+<!-- Form Validation -->
+		<h4><font color="white"> 
+			Results of What You Entered
+		</font></h4>
+<!-- What the user will see -->
+			<p><font color="white"> First Name: <b><i><span id="Span1"></span></i></b> </font></p>
+			<p><font color="white"> Email Address: <b><i><span id="Span1b"></span></i></b> </font></p>
+			<p><font color="white"> Our Future Projects: <b><i><span id="Span2"></span></i></b> </font></p>
+			<p><font color="white"> Questions/Comments: <b><i><span id="Span3"></span></i></b> </font></p>
+			<p><font color="white"> How You Found Us: <b><i><span id="Span4"></span></i></b> </font></p>
+			<p><font color="white"> How Informative Was This Website (1-5): <b><i><span id="Span4b"></span></i></b> </font></p>
+			<p><font color="white"> How Likely You Are To Recommend Us: <b><i><span id="Span5"></span></i></b> </font></p>
+<!-- Opening JavaScript -->
+			<script type="text/javascript">
+//assigning variables
+				function updateResults() {
+					var i = 0, checkBoxDisplay="", addComma=0, checkBox="";
+					var tempR = document.getElementsByName("rating");
+					var tempC = document.getElementsByName("Project");
+					var tempS = document.getElementById("VS");
+					var tempSb = document.getElementById("RA");
+					var tempT = document.getElementById("FN");
+					var tempTb = document.FSForm.EmailAddress;
+					var tempTA = document.getElementById("Que");
+//User answers for first and second textboxes (First Name and Email Address)					
+					document.getElementById("Span1").innerHTML = tempT.value;
+					document.getElementById("Span1b").innerHTML = tempTb.value;
+//while loop for check boxes					
+					while (i < tempC.length) {
+						if (tempC[i].checked == true) {
+							if (addComma == 1) {
+								checkBoxDisplay = checkBoxDisplay + ", ";
+							}
+							checkBoxDisplay = checkBoxDisplay + tempC[i].value;
+							addComma = 1;
+						}
+						i = i + 1;
+					}
+//User answer for check box (future projects)					
+					document.getElementById("Span2").innerHTML = checkBoxDisplay;
+//User answer for text area (question/comment)
+					document.getElementById("Span3").innerHTML = tempTA.value;
+//User answer for first drop down (How user found us)
+					document.getElementById("Span4").innerHTML = tempS.value;
+//User answer for second drop down (website helpfulness)
+					document.getElementById("Span4b").innerHTML = tempSb.value;
+//if statement for radio box
+					if (tempR[0].checked == true) {
+						document.getElementById("Span5").innerHTML = tempR[0].value;
+					}
+					else if (tempR[1].checked == true) {
+						document.getElementById("Span5").innerHTML = tempR[1].value;
+					}
+					else if (tempR[2].checked == true) {
+						document.getElementById("Span5").innerHTML = tempR[2].value;
+					}
+					else if (tempR[3].checked == true) {
+						document.getElementById("Span5").innerHTML = tempR[3].value;
+					}
+					else {
+						document.getElementById("Span5").innerHTML = tempR[4].value;
+					}
+				}
+			</script>
+<!-- Button to display results -->
+			<button onclick="updateResults()">
+				Click to Display Results
+			</button>
+			<hr />
+<!-- address -->
+			<address align=left><font color="white"> This web page was last edited on 11/21/2018 </font></address>
+	</body>
+</html>
